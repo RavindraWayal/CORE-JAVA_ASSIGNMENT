@@ -1,0 +1,116 @@
+/*1) create a multi-threaded application by using Thread pool.create 2 threads
+ *  each thread should display characters from A to J.
+ *  [ make sure while one thread executes , other thread should not interfere ]*/
+import java.util.concurrent.*;
+ class Myclass implements Runnable
+{
+	synchronized public void run()
+	{
+		perform();
+	}
+	void perform() {
+		for(char ch='A'; ch<='J'; ch++)
+		{
+			System.out.println(ch+"   ");
+		}
+		System.out.println("**************");
+	}	
+}
+public class Executordemo1
+{
+  public static void main(String args[])
+	{
+		ExecutorService exec=Executors.newFixedThreadPool(2);
+		Myclass m=new  Myclass();
+			for(int i=0; i<2; i++)
+			{
+				exec.execute(m);
+			}
+		exec.shutdown();
+	}
+}	
+===========================================================================================
+/*2) create a multi-threaded application by using Thread pool.create 2 threads. each thread should display
+ *  numbers from 1 to 10. [ make sure while one thread executes , other thread should not interfere ]
+Also when first thread displays nos. from 1 to 5 it should released the lock and allow other thread to display nos.
+ from 1 to 5 and then previous thread will display nos. from 6 to 10 and so on.*/
+
+public class Executordemo2 implements Runnable
+{
+	static Class cs;
+	static void displ()
+	{
+		synchronized (cs)
+		{
+		for (int i=1;i<10;i++)
+		{
+if(i==5)
+{
+				try
+				{
+					cs.wait();
+				}
+			 catch(InterruptedException ie)		
+				{
+				}
+}	
+	System.out.println("static "+i);			
+	cs.notifyAll();
+}
+}
+}
+	public void run()
+	{
+		displ();
+	}
+	public static void main(String[] args) throws ClassNotFoundException {
+		cs=Class.forName("Executordemo2");
+		
+	Executordemo2 m=new Executordemo2();
+	Executordemo2 m1=new Executordemo2();
+	Thread t1=new Thread(m);
+	Thread t2=new Thread(m1);
+	t1.start();
+	t2.start();
+
+	}
+	}
+=====================================================================================================	
+/*3) create a multi-threaded application by using Thread pool and ReentrantLock (explicit locking) .
+create 2 threads. each thread should display characters from A to J.
+ *  [ make sure while one thread executes , other thread should not interfere ]*/
+
+import java.util.concurrent.*;
+import java.util.concurrent.locks.ReentrantLock;
+
+class Myapp implements Runnable
+{
+	ReentrantLock lock=new ReentrantLock();
+			public void run()
+			{
+                Perform();
+			}
+			public void Perform()
+			{
+			       for (char ch='A'; ch<='J';ch++)
+                   {
+                	   System.out.println(ch);
+                   }
+                   System.out.println("***************************");
+			}
+}
+		
+public class Executordemo3
+{
+	public static void main(String[] args) {
+		ExecutorService exec =Executors.newFixedThreadPool(2) ;
+		
+		Myapp e1=new Myapp();
+		for(int i=0; i<2; i++)
+		{
+			exec.execute(e1);
+		}
+		exec.shutdown();
+	}
+}
+====================================================================================================

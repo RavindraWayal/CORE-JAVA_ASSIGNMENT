@@ -1,0 +1,394 @@
+/1)*Create a multi-level inheritance , instantiate the child class and observe constructor invocation.
+ * Also show, if needed how will u invoke parent class constructor from child class ?*/
+class Alphabet
+{
+	 Alphabet(){
+		System.out.println("class Alphabet");
+	}
+}
+
+class A extends Alphabet
+{
+	A(){
+		System.out.println("class A");
+	}
+}
+
+class B extends A
+{
+	B(){
+		System.out.println("class B");
+	}
+}
+
+public class Assingment1 {
+	public static void main(String[] args) {
+		Alphabet ref=new A();
+	}
+
+}
+==============================================================================================================
+/*2) create a class "Vehicle", define a method "public void start()" in it. 
+ * From this class derive a class FourWheeler. How will u override "start()" method of parent class ?*/
+class Vehicle
+{
+	public void start( )
+	{
+		System.out.println("in class Vehicle");
+	}
+}
+
+class FourWheeler extends Vehicle
+{
+	public void start( )
+	{
+		System.out.println("in class FourWheeler ");
+	}
+}
+public class Assingment2 {
+
+	public static void main(String[] args) {
+		
+		Vehicle ref=new Vehicle();
+		ref.start();
+		System.out.println();
+		Vehicle ref1=new FourWheeler();
+		ref1.start();
+
+	}
+
+}
+
+======================================================================================================================
+/*Go for Hierarchical inheritance, create instances of child class and observe constructor invocation.*/
+interface parent
+{
+
+}
+class child1 implements parent
+{
+	child1()
+	{
+	System.out.println("in child1 class");
+	}
+}
+
+class child2 implements parent
+{
+	child2()
+	{
+		System.out.println("in chiled 2 class ");
+	}
+}
+public class Assingment3 {
+
+	public static void main(String[] args) {
+		
+		parent ref2=new child1();
+		System.out.println();
+		parent ref3=new child2();
+		
+	}
+
+}
+
+=====================================================================================================================
+/*4) Create a class "Top1" with "disp1()" method.
+From this class Derive "Bottom1", "Bottom2" and "Bottom3" classes ,override the "disp1()".
+Now show how will u achieve dynamic polymorphism. */
+
+class Top1
+{
+	void disp1()
+	{	
+		System.out.println("in Top1 class");
+	}
+}
+
+class Bottom1 extends Top1
+{
+	void disp1()
+	{
+		System.out.println("in Bottom1 class");
+	}
+}
+
+class Bottom2 extends Top1
+{
+	void disp1()
+	{
+		System.out.println("in Bottom2 class");
+	}
+}
+
+class Bottom3 extends Top1
+{
+	void disp1()
+	{
+		System.out.println("in Bottom3 class");
+	}
+}
+
+public class Assingment4 {
+	public static void perform(Top1 ref1)
+	{
+		ref1.disp1(); 
+	}
+	
+	public static void main(String[] args) {
+		perform(new Bottom1());
+		perform(new Bottom2());
+	    perform(new Bottom3());
+	}
+}
+
+====================================================================================================================
+/*5) create abstract class Shape. declare "draw()" function as abstract. From this class define 
+ * "Triangle","Polygon" and "Circle" .create an array of Shape having 3 elements.
+store child objects into this array . and calltheir draw function.*/
+
+abstract class Shape
+{
+	void draw()
+	{
+		System.out.println("in shape");
+	}
+}
+class  Triangle extends Shape
+{
+	void draw()
+	{
+		System.out.println("in Tringle");
+	}
+	void draw1()
+	{
+		System.out.println("in Tringle1");
+	}
+}
+class  Polygon extends Shape
+{
+	void draw()
+	{
+		System.out.println("in Polygon");
+	}
+}
+class  Circle extends Shape
+{
+	void draw()
+	{
+		System.out.println("in Circle");
+	}
+}
+public class Assingment5 {
+
+	public static void main(String[] args) {
+		Shape arr[]=new Shape[3];
+		arr[0]=new Triangle();
+		arr[1]=new Polygon();
+		arr[2]=new Circle();
+		
+     for(Shape shape: arr)
+     {
+    	 shape.draw();
+    	 if(shape instanceof Triangle)
+    	 {
+    		 Triangle shape1=(Triangle)shape;
+    		 shape1.draw1();
+    	 }
+     }
+	}
+}
+
+
+========================================================================================================================/*) Define interface "A" with "disp1()" method.
+Derive from "A", interface "B" with "disp2" method.
+Derive class "C" , from "B".
+Instantiate class "C" and call its members as well as derived from parent interfaces.*/
+
+interface X
+{
+	void disp1();
+}
+
+interface Y extends X
+{
+	void disp2();
+}
+
+class Z implements Y
+{
+	public void disp1()
+	{
+		System.out.println("in class A");
+	}
+	public void disp2()
+	{
+		System.out.println("in class B");
+	}
+	
+      public void Additionalmethod()
+    {
+	     System.out.println("in addional methd of c");
+      }
+}
+
+public class Assingment6 {
+
+	public static void main(String[] args) {
+      Z ref=new Z();
+      ref.disp1();
+      ref.disp2();
+      ref.Additionalmethod();
+
+	}
+}
+
+==================================================================================================================
+/*7) Define class "Parent1" with some data.
+Define interface "Parent2" with some methods.
+Derive a class "Child" from "Parent1" and "Parent2", instantiate it and call the members.*/
+
+class Parent1
+{
+	void disp()
+	{	
+	}
+}
+interface Parent2 
+{
+	void disp1();
+	void disp2();
+}
+class child extends Parent1 implements Parent2
+{
+	void disp()
+	{
+		System.out.println("in parent1 class ");
+	}
+	public void disp1()
+	{
+		System.out.println("in parent2 interface");
+	}
+	public void disp2()
+	{
+		System.out.println("in parent2-2 interface");
+	}
+}
+public class Assingment7 {
+
+	public static void main(String[] args) {
+		child ref =new child();
+		ref.disp();
+		ref.disp1();
+		ref.disp2();
+	}
+
+}
+
+===============================================================================================================
+/*8) Define a class "base1" with only parameterized constructor.
+Derive a class "sub1" from "base1". This class should have following constructors
+	a) Default
+	b) one parameter
+	c) two parameter
+Now try to instantiate "sub1" , using any of the above mentioned constructors.*/
+
+class base1
+{
+	int a;
+	int b;
+	base1(int a)
+	{
+		System.out.println(a);
+	}
+}
+class sub1 extends base1
+{
+	sub1()
+	{
+		super (0);
+	}
+	sub1(int a)
+	{
+		super(a);
+		System.out.println(a);
+	}
+	sub1(int b, int c)
+	{
+		super (b);
+		System.out.println(b+" "+c);
+	}
+}
+public class Assingment8 {
+
+	public static void main(String[] args) {
+		sub1 ref=new sub1();
+		System.out.println();
+		sub1 ref1=new sub1(10);
+		System.out.println();
+		sub1 ref2=new sub1(20,30);
+
+
+	}
+
+}
+=====================================================================================================================
+/*9)create interface "Game" , have an abstract method "play()".
+ *  from this interface implements classes like "Cricket" , "FootBall" and "Tennis".
+Now Define one more class 
+public class Demo with main function.
+In this class have a static method "perform" which will take interface reference 
+as parameter.inside "perform()" see to it that any child object passed ,its "play()"
+ method should be invoked. Call "perform()" method from main function.*/
+
+interface Game
+{
+	abstract void play();
+}
+class Cricket implements Game
+{
+	public void play()
+	{
+		System.out.println("play Cricket");
+	}
+	public void stop()
+	{
+		System.out.println("stop Cricket");
+	}
+}
+class FootBall implements Game
+{
+   public void play()
+   {
+	   System.out.println("play FootBall");
+   }
+}
+class Tennis implements Game
+{
+	public void play()
+	{
+		System.out.println("play Tennies");
+	}
+}
+public class Assingment9 {
+	public static void perform(Game ref)
+	{
+		ref.play();
+		if(ref instanceof Cricket)
+		{
+			Cricket c=(Cricket)ref;
+			c.stop();
+		}
+	}
+
+	public static void main(String[] args) {
+		perform(new Cricket());
+		System.out.println();
+        perform(new FootBall());
+        System.out.println();
+        perform(new Tennis());
+	}
+
+}
+
+============================================================================================

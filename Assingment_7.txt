@@ -1,0 +1,393 @@
+//1)
+abstract class Course
+{
+	public void start()
+	{
+		System.out.println("Start class");
+	}
+ 	 abstract double getFee();
+     abstract void evaluate();
+}
+ class DACDBDACourse extends Course
+{
+	public void start()
+	{
+	System.out.println("in DACDBDACourse ");
+	}
+	  double getFee()
+	 {
+		 System.out.println("getFee DACDBDACourse");
+	   return 0;
+		
+	 }
+     void evaluate()
+     {
+    	 System.out.println("evaluate DACDBDACourse");
+     }
+}
+class MSCitCourse   extends Course
+{
+	public void start()
+	{
+		System.out.println("in MSCitCourse ");
+	}
+	  double getFee()
+	 {
+		 System.out.println("getFee MSCitCourse");
+		return 0;
+		
+	 }
+   void evaluate()
+   {
+  	 System.out.println("evaluate MSCitCourse");
+   }
+}
+ public class Assingment1 {
+ public static void perform(Course ref)
+	{
+		    ref.start();//late binding // polymorphism
+		    ref.getFee();
+		    ref.evaluate();
+	}
+
+	 public static void main(String[] args)
+	{          //Course c=new DACDBDACourse();
+		     perform(new DACDBDACourse());
+	         perform(new MSCitCourse());
+	}
+}
+
+==========================================================================================================
+//2)
+abstract class Beverages {
+
+	// Defined
+	public void addMilk() {
+		System.out.println("addMilk");
+	}
+
+	// abstract
+	abstract void addIngredients();
+}
+
+class Coffee extends Beverages
+{
+	void addIngredients()
+	{
+		System.out.println("Coffee");
+	}
+	// addMilk inherited
+}
+class Tea extends Beverages
+{
+	void addIngredients()
+	{
+		System.out.println("Tea");
+	}
+	// addMilk inherited
+}
+class FruitJuice extends Beverages
+{
+	void addIngredients()
+	{
+		System.out.println("FruitJuice");
+	}
+	// addMilk inherited
+}
+public class Assingment2 {
+
+	public static void main(String[] args) {
+		Beverages arr[]=new Beverages[3];
+		        arr[0]=new Coffee();
+				arr[1]=new Tea();
+				arr[2]=new FruitJuice();
+				
+				for(Beverages arrs: arr)
+				{if(arr[0] instanceof Coffee)
+					{arrs.addIngredients();
+			     	arrs.addMilk();
+					}
+				else if(arr[1] instanceof Tea)
+					{arrs.addIngredients();
+				       arrs.addMilk();
+				}
+				else if(arr[2] instanceof FruitJuice)
+					arrs.addIngredients();	
+				}
+	}
+}
+
+====================================================================================================================
+/*3) abstract class "Shape" with
+	a contract "draw()" and concrete behaviour "show()"
+create 3 child classes
+	Triangle, Rectangle and Circle
+define a class "ShapeDemo" with main
+inside main create an array of "Shape" of 3 elements. Store all the child class objects inside the array, traverse it and invoke "draw()" and "show()" methods polymorphically.*/
+
+abstract class   Shape
+{
+	void show()//concrete
+	{
+		System.out.println("Start Class ");
+	}
+	 abstract void draw();//contract
+}
+class Triangle extends Shape
+{
+      	void show() 
+      	{
+		System.out.println("in Triangle class Show ");
+      	}
+		
+	 void draw()
+	 {
+		 System.out.println("in Triangle class draw");
+	}			
+}
+
+class Rectangle extends Shape
+{
+	void show()
+	{
+		System.out.println("in Rectangle class Show");
+	}
+	void draw()
+	{
+		System.out.println("in Rectangle class draw");
+	}
+}
+
+class Circle extends Shape
+{
+	void Show ()
+	{
+		System.out.println("in circle class Show");
+	}
+	void draw()
+	{
+		System.out.println("in circle class draw");
+	}
+}
+public class Assingment3 {
+	public static void perform(Shape ref)
+	{
+		ref.show();
+		ref.draw();
+	}	
+	public static void main(String args [])
+	{
+		perform(new Triangle());
+		System.out.println();
+		perform(new Rectangle());
+		System.out.println();
+		perform(new Circle());
+		
+	}
+}
+=======================================================================================================================
+/*5)accept 3 numbers through command line arguments and display their sum.*/
+
+public class Assingment5 {
+
+	public static void main(String[] args) {
+		if(args.length !=3)
+		{
+			System.out.println("sum of number num1 +num2+ num3 is");
+			return;
+		}
+		try
+		{
+			 // Parse command-line arguments into double
+			double num1=Double.parseDouble(args[0]);
+			double num2=Double.parseDouble(args[1]);
+			double num3=Double.parseDouble(args[2]);
+			
+			  // Display the sum
+			double sum=num1+num2+num3;
+			System.out.println("Sum of " + num1 + " + " + num2 + " + " + num3 + " is: " + sum);
+		}
+		catch(NumberFormatException e)
+		{
+			System.out.println("wrong input");
+		}
+	}
+}
+
+====================================================================================================================
+/*8)now define 3 child classes 
+	DACDBDACourse,MSCit and Basic
+
+inside "DACDBDACourse" class define one more method "public void orientation()"
+define one more class "CourseDemo" with main function.
+inside main function
+	create an array of "Course" of 3 elements.
+store all the child classes objects. Traverse the array and invoke "start()" and "stop()" of all the objects. Also invoke "orientation()" method wherever object of "DACDBDACourse" is present.*/
+
+ class Course1
+{
+	public void start()
+	{
+		System.out.println("start course");
+	}
+	public void stop()
+	{
+		System.out.println("stop course");
+	}
+	public void orientation()
+	{
+		System.out.println("orientation course ");
+	}
+}
+ 
+ class DACDBDA extends Course1
+ {
+	 public void start()
+		{
+		 System.out.println("start course DACDBDACourse");
+		}
+		public void stop()
+		{
+			System.out.println("stop course DACDBDACourse");
+		}
+		public void orientation()
+		{
+			System.out.println("orientation course DACDBDACourse");
+		}
+ }
+ 
+ class MSCit extends Course1
+ {
+	 public void start()
+		{
+		 System.out.println("start course MSCit");
+		}
+		public void stop()
+		{
+			System.out.println("stop course MSCit");
+		}
+ }
+ 
+ class Basic extends Course1
+ {
+	 public void start()
+		{
+		 System.out.println("start course Basic");
+		}
+		public void stop()
+		{
+			System.out.println("stop course Basic");
+		}
+ }
+ 
+public class Assingment8 {
+	public static void main(String[] args) {
+
+		Course1 arr[]=new Course1[3];
+		arr[0]=new DACDBDA();
+		arr[1]=new MSCit();
+		arr[2]=new Basic();
+		
+		for(int i=0; i<3; i++)
+		{
+			arr[i].start();
+			if (arr[i] instanceof DACDBDA)
+			{
+				arr[i].orientation();
+			}
+			arr[i].stop();
+		}
+	}
+}
+
+==============================================================================================================
+/*9)create a class "Demo" with "disp()" which can take variable number of int arguments and display the sum of all numbers passed to it.
+invoke "disp()" from main function.*/
+class Demo
+{
+	void disp(int ... numbers)
+	{
+		int sum=0;
+				for(int num:numbers)
+				{
+					sum+=num;
+				}
+				System.out.println("the sum is  "+  sum);
+	}
+}
+public class Assingment9 {
+
+	public static void main(String[] args) {
+		Demo ref=new Demo();
+		ref.disp(10,20,30,40,50,60,70,80,90);
+	}
+}
+
+=====================================================================================================================
+
+//6))
+//On Devloper Side.
+package Assingment6;
+
+public interface Shape {
+	void draw();
+}
+
+-------
+package Assingment6;
+
+public class Circle implements Shape
+{
+   public void draw ()
+   {
+	   System.out.println("in Circle class");
+   }
+}
+
+-------
+package Assingment6;
+
+public class Rect implements Shape
+{
+    public void draw() 
+    {
+    	System.out.println("in Rect class");
+    }
+}
+
+--------
+package Assingment6;
+
+public class Triangle implements Shape
+{
+	public void draw()
+	{
+		System.out.println("in Triangle class");
+	}
+}
+
+----------
+//On client side
+
+import Assingment6.*;
+
+/*on Client side:
+
+define "ShapeDemo" class with main and perform functions
+Triangle,Rect and Circle
+
+define perform function in such a way that given any shape it can invoke "draw()" of it.*/
+public class ShapeDemo {
+   public static void perform(Shape ref)
+   {
+	   ref.draw();
+   }
+	public static void main(String[] args) {
+		perform(new Triangle());
+		perform(new Rect());
+		perform(new Circle());
+		
+	}
+}
+
+=======================================================================================================================

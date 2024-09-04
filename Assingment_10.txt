@@ -1,0 +1,108 @@
+/*1) create a multi-threaded application by using  "extends Thread " method.create 2 threads. 
+ * they should display characters from A to J.*/
+class Assingment1 extends Thread
+{
+	public void run ()
+	{
+		for (int i='A'; i<='J'; i++)
+		{
+			System.out.print((char )i+" ");
+		}
+	
+	System.out.println();
+	}
+	public static void main(String[] args) {
+		Assingment1 ref1=new Assingment1();
+		Assingment1 ref2=new Assingment1();
+		ref1.start();
+		ref2.start();
+
+	}
+}
+======================================================================================================
+/*2) create a multi-threaded application by using  "extends Thread " method.create 2 threads. 
+ * they should display characters from A to J.   above program  using "implements Runnable" method. */
+public class Assingment2 implements Runnable
+{	
+	public void run ()
+	{
+		for (int i='A'; i<='J'; i++)
+		{
+			System.out.print((char)i+" ");
+		}
+	}
+	
+public static void main(String[] args) {
+		Assingment2 ref1=new Assingment2();
+		Thread t1=new Thread(ref1);
+		Thread t2=new Thread(ref1);
+		t1.start();
+		t2.start();
+	}
+}
+==================================================================================================
+/*3) create 3 threads in such a way that while one thread is executing, 2 threads cannot interfere. 
+ * they should display output "Exec  0" to "Exec 5"*/
+public class Assingment3 implements Runnable {
+
+    public void run()  
+    {
+    	synchronized(this) 
+    	{
+    	for (int i=1; i<=5;i++)
+    	{
+    		System.out.print(i+" ");
+    	}	
+    	
+    	}
+	}
+	public static void main(String[] args) {
+		Assingment3 ref=new Assingment3();
+		Thread t1=new Thread(ref);
+		Thread t2=new Thread(ref);
+		Thread t3=new Thread(ref);
+		t1.start();
+		t2.start();
+		t3.start();
+	}
+}
+=================================================================================================
+/*5 create 2 threads
+   one thread will display 1 to 50
+   second thread will display 50 to 1
+both the threads should start simultaneously.*/
+
+public class Assingment5 implements Runnable
+{
+	public void run()
+	{
+	synchronized (this)
+	{
+		if(Thread.currentThread().getName().equalsIgnoreCase("first"))
+		
+		{
+	       for(int i=1;i<=50; i++)
+	       {
+	    	   System.out.println(Thread.currentThread().getName()+" "+i);
+	       }
+		}
+	       else
+	       {
+	       for(int i=50;i>=1; i--)
+	       {
+	    	   System.out.println(Thread.currentThread().getName()+" "+i);
+	       }
+	       }
+	}
+	}
+	  public static void main(String[] args) {
+		   Assingment5 ref=new Assingment5();
+		   Thread t1=new Thread(ref);
+		   Thread t2=new Thread(ref);
+		   t1.setName("first");
+		   t2.setName("second");
+		   t1.start();
+		   t2.start();
+	}
+}
+========================================================================================

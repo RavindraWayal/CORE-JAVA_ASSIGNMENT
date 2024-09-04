@@ -1,0 +1,51 @@
+//1)	Define 2 classes “First” and “Second” with member variables , member functions and constructors of  your choice.
+//Now define a class “Two” in which define main function. In main function create various instances of First and Second
+//and call their individual member functions.
+class First
+{
+	int num = 0;//member variable
+	private int p_num;
+	
+	void disp()//memebr function
+	{
+		
+	}
+	First ()//default constructor
+	{
+		System.out.println("Inside First()");
+	}
+	
+	First(int a)//parameterize constructor
+	{
+		System.out.println("Inside First(int a)");
+	}
+}
+
+class Second extends First
+{
+	Second()//default constructor
+	{
+		System.out.println("Inside Second()");
+	}
+	
+	Second(int a)//parameteriz constructor
+	{
+		System.out.println("Inside Second()");
+	}
+}
+
+public class Problem1 {
+
+	public static void main(String[] args) {
+		First f1 = new First();
+		First f2 = new First(10);
+		System.out.println();
+		Second s1 = new Second();
+		System.out.println();
+		First f3 = new Second();
+		
+		System.out.println(f1.num);
+		System.out.println(s1.num);
+	}
+}
+======================================

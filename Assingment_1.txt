@@ -1,0 +1,326 @@
+//1)	display a table of a particular number
+import java.util.*;
+public class ass1b {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number : ");
+		int num=sc.nextInt();
+		for(int i=1; i<=10; i++)
+		{
+			int mul=num*i;
+			System.out.printf("%d x %d = %d",num,i,mul);
+			System.out.println();
+		}
+
+	}
+
+}
+-------------------------------------------------------------------
+//2)	declare two numbers and one operator as a character. e.g. '+'
+//     using switch... case check which operator is declared and accordingly perform the action.
+import java.util.*;
+public class ass1b{
+	public static void main(String[] args) {
+		int r;
+     Scanner sc=new Scanner(System.in);
+     System.out.println("Enter first number: ");
+     int a=sc.nextInt();
+     System.out.println("Enter second number: ");
+     int b=sc.nextInt();
+     System.out.println("Enter arithmetic Operator : ");
+     char c=sc.next().charAt(0);
+      
+     switch(c)
+     {
+       case '+': r=a+b;
+                      System.out.println("sum is "+r);
+                      break;
+    	 
+       case '-': r=a-b;
+    	             System.out.println("Sub is"+r);
+    	             break;
+    	             
+       case '*': r=a*b;
+                      System.out.println( "multiplecation is"+r);
+    	              break;
+    	              
+       case '/': r=a/b;
+                      System.out.println("division is"+r);
+                      break;
+                      
+        default : System.out.println("Wrong input");              
+     } 
+}
+}
+--------------------------------------------------------------------------
+//3)	Display numbers  1 to 10 using loop
+import java.util.*;
+public class ass1b {
+	public static void main(String[] args) {
+		for(int i=1; i<=10; i++)
+		{
+			
+			System.out.println(i);
+		}
+	}
+}
+-------------------------------------------------------------------
+//4)	Display numbers from 3 to 30 except number 24  using loop.
+import java.util.*;
+public class ass1b {
+	public static void main(String[] args) {
+		int a=3;
+		int b=30;
+		for(int i=a; i<=30; i++)
+		{
+			if(i==24)
+			continue;
+			System.out.println(i);
+		}
+	}
+}
+---------------------------------------------------------------------
+//5)	Using if…….else if….  Else,  display whether result is  fail, pass, second class , first class, Distinction etc.
+import java.util.*;
+public class ass1b {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the marks: ");
+		int a=sc.nextInt();
+		
+		if(a<40)
+			System.out.println("fail");
+		else if (a>40&&a<=50)
+			System.out.println("pass");
+		else if (a>50&&a<=60)
+			System.out.println("second class");
+		else if (a>60&&a<75)
+			System.out.println("first class");
+		else if(a>=75)
+			System.out.println("Distinction");
+		
+	}
+}
+----------------------------------------------------------------------------------
+//6) display all prime numbers between 3 to 30
+import java.util.*;
+public class ass1b{
+	public static void main(String[] args) {
+		int a=3;
+		int b=30;
+		
+		for(int i=3; i<=30; i++)
+		{
+			int count=0;
+			for(int n=2; n<=i/2; n++) 
+			{
+			if(i%n==0)
+			count++;
+			}
+		  if (count==0)
+				System.out.println(i+ "prime number ");
+		}
+	}
+}
+----------------------------------------------------------------------
+//7) using nested for loop display following :
+import java.util.*;
+public class ass1b{
+	public static void main(String[] args) {
+
+			for(int  i='A'; i<='C'; i++)
+			{
+				for(int j='a'; j<='c'; j++)
+				{
+				System.out.println((char)i+" "+(char)j);
+	        	}
+				System.out.println(" ");
+			}
+}
+}
+// A  a
+// A  b
+// A  c
+// 
+// B  a
+// B  b
+// B  c
+//
+// C  a
+// C  b
+// C  c
+-----------------------------------------------------------------------------
+//8) solve following patten programs:
+
+import java.util.*;
+public class ass1b{
+	public static void main(String[] args) {
+    int s,j;
+		for (int i=1; i<=5; i++)
+		{
+			for( s=i; s>1; s--)
+				System.out.print(" ");
+			
+			for( j=i; j<=4; j++)
+				System.out.print(" *" );
+		    	System.out.println(" ");	
+		}
+
+	}
+}
+// * * * *
+//  * * *
+//   * *
+//    *
+//
+----------------------------------------------------------------
+//8) solve following patten programs:
+
+import java.util.*;
+public class ass1b{
+	public static void main(String[] args) {
+    int s,j;
+		for (int i=1; i<=5; i++)
+		{
+			for( s=i; s<5; s++)
+				System.out.print(" ");
+			
+			for( j=1; j<=i; j++)
+				System.out.print(" *" );
+		    	System.out.println(" ");	
+		}
+
+	}
+}
+//    *
+//   * *
+//  * * *
+// * * * *
+//* * * * *
+--------------------------------------------------------------------------
+//8) solve following patten programs:
+
+import java.util.*;
+public class ass1b{
+	public static void main(String[] args) {
+    int s,j;
+		for (int i=1; i<=4; i++)
+		{
+			for( s=i; s<4; s++)
+				System.out.print(" ");
+			
+			for( j=1; j<=i; j++)
+				System.out.print(" *" );
+		    	System.out.println(" ");	
+		}
+		for (int i=1; i<=3; i++)
+		{
+			for( s=i; s>=1; s--)
+				System.out.print(" ");
+			
+			for( j=3; j>=i; j--)
+				System.out.print(" *" );
+		    	System.out.println(" ");	
+		}
+	}
+}
+//    *
+//   * *
+//  * * *
+// * * * *
+//  * * *
+//   * *
+//    *
+----------------------------------------------------------------------------------------
+package assingnment;
+
+public class Main {
+	private int num;
+	
+	public void setNum(int num)
+	{
+		this.num=num;
+	}
+	public int getNum()
+	{
+		return num;
+	}
+     public int disp(Main ref)
+     {
+    	ref=new Main();
+    	ref.num=300;
+    	 return ref.num;
+     }
+
+	public static void main(String[] args) {  
+	Main s1=new Main();
+	Main s2=new Main();
+	s1.setNum(150);
+	s2.setNum(200);
+	System.out.println("s1="+s1.getNum());
+	s1.disp(s1);
+	int result=s1.disp(s1);
+	System.out.println("s1="+s1.getNum());
+	System.out.println("s2="+s2.getNum());
+	s1.setNum(result);
+	System.out.println("s1="+s1.getNum());
+	System.out.println("result="+result);
+
+	}
+}
+--------------------------------------------------------------------------------------
+import java.util.*;
+class math{
+	public static void sum(int a, int b)
+	{
+		int sum=a+b;
+		System.out.println(sum+"is sum");
+	}
+	public static void sub (int a, int b)
+	{
+		int sub =a-b;
+		System.out.println(sub+"is substraction");
+	}
+	public static void mul(int a,int b)
+	{
+		int mul=a*b;
+		System.out.println(mul+"is multiplecation");
+	}
+	public static void div(int a,int b)
+	{
+		int div=a/b;
+		System.out.println((float)div+"is division");
+	}
+	public static void gret(int a, int b)
+	{
+		if(a>b)
+			System.out.println(a+"is Greter");
+		else
+			System.out.println(b+"is greter");
+	}
+	public static void cheack(int a)
+	{
+		if (a%3==0)
+			System.out.println(a+"is divisible by 3");
+		else
+			System.out.println(a+"is not Divisible by 3");
+	}
+}
+
+public class main {	
+public static void main(String[] args) 
+{
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Two numbers a & b 10: ");
+	int a=sc.nextInt();
+	int b=sc.nextInt();
+	math.sum(a,b);
+	math.sub(a,b);
+	math.mul(a,b);
+	math.div(a, b);
+	math.gret(a, b);
+	math.cheack(a);
+	
+	}
+}
+=======================================================================================

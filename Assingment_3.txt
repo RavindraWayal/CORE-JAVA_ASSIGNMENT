@@ -1,0 +1,255 @@
+import java.util.*;
+public class Problem1 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner (System.in);
+		int a=sc.nextInt();
+		
+		if(a>=75)
+		  	System.out.println("distingtion");
+		else if(a>=60 && a<=75)
+			System.out.println("first class");
+		else if(a>=45&&a<60)
+			System.out.println("second class");
+		else if (a>=3&&a<45)
+			System.out.println("pass");
+		else if (a<35)
+			System.out.println("fail");
+	}
+}
+=================================================================
+//accept a number and display whether it is divisible by 7 or not.
+import java.util.*;
+public class Problem2 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner (System.in);
+		int num=sc.nextInt();
+		if (num%7==0)
+			System.out.println("number is devisible by 7");
+		else
+		   System.out.println("not divisible");
+	}
+}
+=============================================================================
+import java.util.*;
+public class Problem3 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner (System.in);
+		char ch=sc.next().charAt(0);
+		
+		if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+			System.out.println(ch +"character is vowel");
+		else
+	    System.out.println(ch +"character not vowle");
+	}
+}
+================================================================================
+//accept 2 numbers and a character as operator ( + , - ,* , / , % ). Perform arithmetic according to the character entered.
+import java.util.*;
+public class Problem4 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner (System.in);
+		int a=sc.nextInt();
+		int b=sc.nextInt();
+		char ch=sc.next().charAt(0);
+		
+		switch(ch) 
+		{
+		case '+' :  int r=a+b;
+		                   System.out.println(r);
+		                   break;
+		                
+		case '-' :   r=a-b;
+		                   System.out.println(r);
+		                   break;
+		                               
+		case '*' :  r=a*b;
+		                  System.out.println(r);
+		                  break;
+		                   
+		case'/' :    r=a/b;
+		                   System.out.println(r);
+		                   break;
+		                    
+		case'%':   r=a%b;
+		                   System.out.println(r);
+		                   break;
+		 default :  System.out.println("wrong input ");                    
+		}
+	}
+}
+======================================================================================
+//5) accept a number and display its table using 
+import java.util.*;
+public class Problem5 {
+
+	public static void main(String[] args) {
+		int r,a=1;
+		Scanner sc=new Scanner (System.in);
+		int num=sc.nextInt();
+		System.out.println("table is");
+		do {
+			r=a*num;
+			System.out.println(r);
+			a++;
+		}while(a<=10);
+	}
+}
+=============================================================================
+//accept numbers and display as long as user does not enter 0
+import java.util.*;
+public class Problem6 {
+
+	public static void main(String[] args) {
+		int a;
+		Scanner sc=new Scanner (System.in);
+		do
+		{
+			 a=sc.nextInt();
+		}while(a!=0);
+		
+	}
+}
+================================================================================
+//accept a number and display whether it is even , odd or zero.
+import java.util.*;
+public class Problem7 {
+
+	public static void main(String[] args) {
+		Scanner sc= new Scanner (System.in);
+		int num=sc.nextInt();
+		
+		 if (num==0)
+				System.out.println("number is zero");
+		else if (num%2==0)
+			    System.out.println("number is even");
+		else if(num%2!=0)
+		        System.out.println("number is odd");
+		 
+	}
+}
+
+================================================================================
+//create int array of 5 elements and accept 5 values inside it. Now display all the numbers of array.
+import java.util.*;
+public class Problem8 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int [ ] arr=new int[5];
+		
+     for(int i=0; i<5;i++)
+	{
+    	 arr[i]=sc.nextInt();
+		System.out.println(arr[i]);
+	}
+     
+ }
+}
+===============================================================================================
+//create int array of 5 elements and accept 5 values inside it. Now accept one more number and check whether that number is there inside array or not.
+import java.util.*;
+public class Problem9 {
+
+	public static void main(String[] args) {
+		int i;
+		Scanner sc=new Scanner (System.in);
+		int num=sc.nextInt();
+		int arr[]=new int[5];
+		for ( i=0; i<5; i++)
+		{
+			{
+			arr[i]=sc.nextInt();
+			}
+			if(num==arr[i])
+				System.out.println("this number is inside the array");
+		}	
+	}
+
+}
+============================================================================================
+//accept 5 numbers in an array and display their sum.
+import java.util.*;
+public class ProblemA {
+
+	public static void main(String[] args) {
+		int sum=0;
+		Scanner sc=new Scanner(System.in);
+		int arr[]=new int[5];
+		for(int i=0; i<5; i++)
+		{
+			arr[i]=sc.nextInt();
+			sum=sum+arr[i];
+		}
+		System.out.println("sum="+ sum);
+	}
+}
+================================================================================
+//accept 5 numbers in an array and sort them in ascending order.
+import java.util.*;
+public class ProblemB {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner (System.in);
+		int arr[]=new int [5];
+		for (int i=0; i<5; i++)
+		{
+			arr[i]=sc.nextInt();
+		}
+		System.out.println("asending order");
+		Arrays.sort(arr);
+		for(int asending :arr)
+		{
+			System.out.println( asending);
+		}		
+}
+}
+========================================================================
+ //accept 2 numbers and display whether
+//a) first number is greater
+//b) second number is greater
+//c) both are equal
+import java.util.*;
+public class ProblemC {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner (System.in);
+		int a=sc.nextInt();
+		int b=sc.nextInt();
+		if (a>b)
+			System.out.println("first number is gretter");
+		else if (a<b)
+			System.out.println("second number is greteer ");
+		else if (a==b)
+			System.out.println("both are equal");
+	}
+}
+============================================================================
+// display prime numbers from 2 to 20
+public class ProblemE {
+
+	public static void main(String[] args)
+	{
+		int a=2,b=20;
+		System.out.println(2+"this is prime number");
+		int i;
+		for ( i=2; i<=b; i++)
+		{ 
+			int cnt=0;
+			for (int j=2; j<=b;j++)
+			{
+				if (i%j==0)
+				cnt++;
+				break;
+			}
+		 if(cnt==0)
+		 {
+			System.out.println(i+"this is prime number");
+		 }
+	}//for i
+	}	
+}//class
+====================================================================================
